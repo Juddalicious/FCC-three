@@ -19,3 +19,33 @@ html {
     layout 
     ============= */
 
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.icon {
+    font-size: 1em;
+    margin: 0 0.5em;
+}
+
+.nav-item {
+    list-style-type: none;
+    justify-self: end;
+    color: var(--font-color);
+    text-decoration: none;
+    padding: 0.5em;
+    
+}
+
+.title {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    font-size: 2em;
+    margin: 1em;
+}
