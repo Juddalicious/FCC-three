@@ -1,0 +1,21 @@
+/*  =============
+    global styles  
+    ============= */
+
+*, *::before, *::after {box-sizing=inherit}
+
+html {
+    box-sizing: border-box;
+}
+
+:root {
+    --button-color: #f1c40f;
+    --background-color: #ddd;
+    --icon-color: #ff8c00;
+    --font-color: black;
+}
+
+/*  =============
+    layout 
+    ============= */
+
