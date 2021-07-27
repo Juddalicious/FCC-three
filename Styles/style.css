@@ -1,11 +1,98 @@
-/*  =============
-    global styles  
-    ============= */
+/*  ========
+    CONTENTS
+    ========
+    1. global styles
+    2. typography
+    3. spacing
 
-*, *::before, *::after {box-sizing=inherit}
+
+
+
+
+/*  ================
+    1. global styles  
+    ================ */
+
+*, *::before, *::after {box-sizing = inherit}
+
+*, *::before, *::after {margin: 0px; padding: 0px;}
 
 html {
     box-sizing: border-box;
+}
+
+
+
+/*  =============
+    2. typography
+    ============= */
+:root {
+    --font-primary: sans-serif;
+    --secondary-font: ;
+
+    /*sizing*/
+    --text-base-size: 1em;
+    --text-scaling-ratio: 1.2;
+
+    --text-xs: calc(1em / (var(--text-scaling-ratio) * var(--text-scaling-ratio)))
+    --text-sm: calc(1em / var(--text-scaling-ratio));
+    --text-md: calc(1em * var(--text-scaling-ratio));
+    --text-lg: calc(1em * var(--text-scaling-ratio) * var(--text-scaling-ratio));
+    --text-xlg: calc(1em * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio));
+    --text-xxlg: calc(1em * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio));
+    --text-xxxlg: calc(1em * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio) * var(--text-scaling-ratio));
+
+}
+
+body {
+    font-size: var(--text-base-size);
+    font-family: var(--font-primary);
+}
+
+h1 {
+    font-size: var(--text-xxxlg);
+}
+
+h2 {
+    font-size: var(--text-xxlg);
+}
+
+h3 {
+    font-size: var(--text-xlg);
+}
+
+h4 {
+    font-size: var(--text-lg);
+}
+ 
+/*  ==========
+    3. spacing
+    ========== */
+
+:root {
+    --space-baseline: 1em;
+    --space-scale-ratio: 1.4;
+    
+    /* spacing values */
+    --space-xxxs: calc(1em / (var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio)));
+    --space-xxs: calc(1em / (var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio)));
+    --space-xxs: calc(1em / (var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio)));
+    --space-xs: calc(1em / (var(--space-scale-ratio) * var(--space-scale-ratio)));
+    --space-sm: calc(1em / var(--space-scale-ratio));
+    --space-md: calc(1em * var(--space-scale-ratio));
+    --space-lg: calc(1em * var(--space-scale-ratio) * var(--space-scale-ratio));
+    --space-xl: calc(1em * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio));
+    --space-xxl: calc(1em * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio));
+    --space-xxxl: calc(1em * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio) * var(--space-scale-ratio));
+    
+    }
+
+/*  =======
+    4. colours
+    ======= */
+
+body {
+    background-color:  #eeeeee;
 }
 
 :root {
@@ -15,22 +102,47 @@ html {
     --font-color: black;
 }
 
-/*  =============
-    layout 
-    ============= */
+
+/*  ================
+    layout and menus
+    ================ */
 
 nav {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     
 }
 
-.icon {
-    font-size: 1em;
-    margin: 0 0.5em;
+@media (min-width: 692px) {
+    nav {
+        flex-direction: row;
+    }
+} 
+
+.nav-menu {
+    display: flex;
+    padding: 0px;
+    width: 600px;
+}
+
+.nav-item {
+    flex-grow: 1;
+}
+
+@media (max-width: 691px) {
+    .nav-menu {
+        flex-direction: column;
+        width: 800px;
+
+    }
+}
+
+.site-icon {
+    font-size: var(--text-base-size);
+    margin: 0 var(--space-xxs);
 }
 
 .nav-item {
@@ -42,10 +154,58 @@ nav {
     
 }
 
-.title {
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    font-size: 2em;
-    margin: 1em;
+.main_title {
+    font-size: var(--text-lg);
+    margin: var(--space-xs);
+    min-width: 325px;
+}
+
+.headline {
+    font-size: var(--text-md);
+    text-align: center;
+    margin: var(--space-baseline) 0;
+}
+
+#email_input {
+    display: block;
+    margin: var(--space-lg) auto;
+    padding: var(--space-xxxs);
+}
+
+.call_button {
+    display: block;
+    margin: 1em auto;
+    background:var(--button-color);
+    padding: var(--space-xxs) var(--space-md);
+    border: none;
+    font-weight: bolder;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: var(--text-xxxlg);
+    color: var(--icon-color);
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--space-sm)
+}
+
+@media (max-width: 691px) {
+    .icon {
+        display: none;
+    }
+}
+
+.info-cards {
+    margin: var(--space-xxxl) auto 0 auto;
+}
+
+.info-card {
+    display: flex;
+    width: 80vw;
+    margin: 0 auto var(--space-lg) auto;
+    justify-content: center;
 }
